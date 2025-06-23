@@ -1,0 +1,16 @@
+extends Node2D
+
+var speed = 300  # pixels per second, for example
+var velocity = random_start_direction() * speed
+
+# In the Ball script or the main game script
+func spawn_ball():
+    var viewport_size = get_viewport().size
+    position = viewport_size / 2
+
+func random_start_direction():
+	var angle = randf_range(-0.25, 0.25) * PI
+	var direction = Vector2.ZERO.RIGHT.rotated(angle)
+	if randi() % 2 == 0:
+		direction.x = -direction.x 
+	return direction.normalized()
