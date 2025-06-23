@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqpvms7jflt5x"]
+[gd_scene load_steps=7 format=3 uid="uid://bqpvms7jflt5x"]
 
 [ext_resource type="Script" uid="uid://qyxv5mdve4u8" path="res://arena.gd" id="1_27ga2"]
 [ext_resource type="Texture2D" uid="uid://imenvfvf1tuu" path="res://icon.svg" id="1_ubfh8"]
 [ext_resource type="PackedScene" uid="uid://mnrv3yfosrmu" path="res://player.tscn" id="2_444vf"]
+[ext_resource type="PackedScene" uid="uid://d2jkfciby7843" path="res://enemy.tscn" id="4_h0wof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
 size = Vector2(1163, 65)
@@ -54,6 +55,8 @@ texture = ExtResource("1_ubfh8")
 position = Vector2(21, 300)
 
 [node name="Leftscore" type="Area2D" parent="."]
+collision_layer = 3
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Leftscore"]
 position = Vector2(-29, 313)
@@ -61,11 +64,15 @@ shape = SubResource("RectangleShape2D_27ga2")
 
 [node name="Rightscore" type="Area2D" parent="."]
 position = Vector2(1190, 10)
+collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rightscore"]
 position = Vector2(-7, 312)
 shape = SubResource("RectangleShape2D_27ga2")
+
+[node name="Enemy" parent="." instance=ExtResource("4_h0wof")]
+position = Vector2(1130, 312)
 
 [connection signal="body_entered" from="Leftscore" to="." method="_on_leftscore_body_entered"]
 [connection signal="body_entered" from="Rightscore" to="." method="_on_rightscore_body_entered"]

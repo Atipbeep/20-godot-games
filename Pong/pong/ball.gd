@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed = 300
 
 func _ready():
+    add_to_group("ball")
     # Set the ball's velocity to a random left or right direction with a slight vertical angle
     velocity = random_start_direction() * speed
 
