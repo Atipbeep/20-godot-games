@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 300
+var speed = 600
 
 func _ready():
     add_to_group("ball")
@@ -17,5 +17,10 @@ func random_start_direction():
 func _physics_process(delta):
     var collision = move_and_collide(velocity * delta)
     if collision:
-        # Bounce off by reflecting the velocity over the collision normal
-        velocity = velocity.bounce(collision.get_normal())
+        if collision.get_collider().name == "Paddle":
+            velocity = velocity.bounce(collision.get_normal())
+            speed += 20  # Increase speed on each paddle hit
+        else:
+            velocity = velocity.bounce(collision.get_normal())
+    else:
+        position += velocity * delta

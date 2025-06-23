@@ -1,23 +1,22 @@
 extends CharacterBody2D
 
-@export var speed: float = 300  # Adjust for difficulty
-var ball = null 
+var ball = null
+var speed := 200  # Adjust for paddle speed
 
-func _ready():
-	call_deferred("_find_ball")
-    # Adjust this path to point to your ball node
-    ball = get_parent().get_node("Ball")
+func _ready() -> void:
+	add_to_group('paddle')
 
-func _physics_process(delta):
-    if not ball:
-        return
-    if abs(ball.position.y - position.y) > 5:  # Dead zone to prevent jitter
-        if ball.position.y > position.y:
-            position.y += speed * delta
-        else:
-            position.y -= speed * delta
+func _process(_delta):
+	# Look for the ball if we don't have it, or if it was removed (e.g., after scoring)
+	if ball == null or not is_instance_valid(ball):
+		if get_parent().has_node("Ball"):
+			ball = get_parent().get_node("Ball")
+		else:
+			return  # Ball not spawned yet, do nothing this frame
 
-func _find_ball():
-	var balls = get_tree().get_nodes_in_group("ball")
-	if balls.size() > 0:
-		ball = balls[0]
+	# Move towards the ball's Y position
+	if abs(ball.position.y - position.y) > 5:  # Deadzone to prevent jitter
+		if ball.position.y > position.y:
+			position.y += speed * _delta
+		else:
+			position.y -= speed * _delta

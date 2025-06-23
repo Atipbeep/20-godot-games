@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @export var SPEED = 400
 
+func _ready() -> void:
+	add_to_group('paddle')
+
 func _physics_process(_delta):
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed('UP'):

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2jkfciby7843" path="res://enemy.tscn" id="4_h0wof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_444vf"]
-size = Vector2(1163, 65)
+size = Vector2(1160, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27ga2"]
 size = Vector2(56, 646)
@@ -43,7 +43,8 @@ scale = Vector2(9, 0.53125)
 texture = ExtResource("1_ubfh8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-position = Vector2(571.5, -30.5)
+position = Vector2(570, -52)
+scale = Vector2(1, 1.02603)
 shape = SubResource("RectangleShape2D_444vf")
 
 [node name="Divider" type="Sprite2D" parent="."]
@@ -72,7 +73,7 @@ position = Vector2(-7, 312)
 shape = SubResource("RectangleShape2D_27ga2")
 
 [node name="Enemy" parent="." instance=ExtResource("4_h0wof")]
-position = Vector2(1130, 312)
+position = Vector2(1131, 296)
 
 [connection signal="body_entered" from="Leftscore" to="." method="_on_leftscore_body_entered"]
 [connection signal="body_entered" from="Rightscore" to="." method="_on_rightscore_body_entered"]

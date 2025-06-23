@@ -10,12 +10,14 @@ var current_ball = null
 func _ready():
 	randomize()
 	spawn_ball()
+	print_tree()
 
 func spawn_ball():
 	var ball = ballscene.instantiate()
 	ball.position = get_viewport().size / 2
 	ball.velocity = random_start_direction() * speed
 	add_child(ball)
+	current_ball = ball
 	print('ball spawned')
 
 func random_start_direction():
