@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 400
 
 func _ready() -> void:
-	add_to_group('paddle')
+	add_to_group('Paddle')
 
 func _physics_process(_delta):
 	velocity = Vector2.ZERO

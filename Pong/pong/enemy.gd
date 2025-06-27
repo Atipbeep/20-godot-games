@@ -4,7 +4,7 @@ var ball = null
 var speed := 200  # Adjust for paddle speed
 
 func _ready() -> void:
-	add_to_group('paddle')
+	add_to_group('Paddle')
 
 func _process(_delta):
 	# Look for the ball if we don't have it, or if it was removed (e.g., after scoring)

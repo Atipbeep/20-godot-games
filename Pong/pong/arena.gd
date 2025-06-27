@@ -35,6 +35,7 @@ func _on_leftscore_body_entered(body):
 	if body is CharacterBody2D:
 		right_score += 1
 		body.call_deferred("queue_free")
+		await get_tree().create_timer(2.0).timeout
 		call_deferred("spawn_ball")
 		print('LEFTSCORE!')
 
@@ -42,5 +43,6 @@ func _on_rightscore_body_entered(body):
 	if body is CharacterBody2D:
 		left_score += 1
 		body.call_deferred("queue_free")
+		await get_tree().create_timer(2.0).timeout
 		call_deferred("spawn_ball")
 		print('RIGHTSCORE!')

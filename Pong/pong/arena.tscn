@@ -54,6 +54,7 @@ texture = ExtResource("1_ubfh8")
 
 [node name="Player" parent="." instance=ExtResource("2_444vf")]
 position = Vector2(32, 313)
+SPEED = 500
 
 [node name="Leftscore" type="Area2D" parent="."]
 collision_layer = 3
