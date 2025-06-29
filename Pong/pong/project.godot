@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Pong"
-run/main_scene="uid://bqpvms7jflt5x"
+run/main_scene="uid://c3ltqp54wkl7u"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
 
 [input]
 

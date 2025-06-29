@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3ltqp54wkl7u"]
+
+[ext_resource type="PackedScene" uid="uid://djmbmpy68buu5" path="res://scenes/Player.tscn" id="1_e05a3"]
+[ext_resource type="Script" uid="uid://c8stt0lahntnf" path="res://scripts/arena.gd" id="1_wl4x5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ug7gw"]
+size = Vector2(800, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e05a3"]
+size = Vector2(804, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl4x5"]
+size = Vector2(73.5, 596.25)
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_wl4x5")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="Color" type="ColorRect" parent="Wall"]
+offset_right = 800.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(400, 20)
+shape = SubResource("RectangleShape2D_ug7gw")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(401, 570.5)
+
+[node name="Color" type="ColorRect" parent="Wall2"]
+offset_left = -401.0
+offset_top = -20.5
+offset_right = 399.0
+offset_bottom = 19.5
+size_flags_horizontal = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("RectangleShape2D_e05a3")
+
+[node name="Divider" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+offset_left = 400.0
+offset_top = 40.0
+offset_right = 415.0
+offset_bottom = 550.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_e05a3")]
+position = Vector2(20, 300)
+
+[node name="LGoal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LGoal"]
+position = Vector2(-40, 297.125)
+shape = SubResource("RectangleShape2D_wl4x5")
+
+[node name="RGoal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RGoal"]
+position = Vector2(837, 297)
+shape = SubResource("RectangleShape2D_wl4x5")
+
+[node name="Scoreboard" type="HBoxContainer" parent="."]
+offset_left = 301.0
+offset_top = 41.0
+offset_right = 516.0
+offset_bottom = 64.0
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Leftscore" type="Label" parent="Scoreboard"]
+layout_mode = 2
+text = "0"
+
+[node name="Rightscore" type="Label" parent="Scoreboard"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[connection signal="body_entered" from="LGoal" to="." method="_on_l_goal_body_entered"]
+[connection signal="body_entered" from="RGoal" to="." method="_on_r_goal_body_entered"]

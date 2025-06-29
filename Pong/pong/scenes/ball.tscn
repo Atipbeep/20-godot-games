@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://biyubhqup5gtu"]
+
+[ext_resource type="Script" uid="uid://b7d8wpw1y4gh6" path="res://scripts/ball.gd" id="1_7s4qf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1dj2"]
+radius = 6.08276
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_7s4qf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n1dj2")
