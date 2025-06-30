@@ -1,9 +1,12 @@
-extends CharacterBody2D
+extends CharacterBody2D #Enemy
 
-var speed = 500
+var speed = 400
 
 
-func _physics_process(delta):
+func _ready():
+	add_to_group('paddle')
+
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
