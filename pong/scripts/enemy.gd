@@ -1,12 +1,14 @@
 extends CharacterBody2D #Enemy
 
 
-@export var speed: float = 300.0
+@export var speed: float = 400.0
 var reaction = 20
 
+func _ready():
+	add_to_group('paddle')
 
 func _physics_process(delta):
-	var balls = get_tree().get_nodes_in_group('ball')
+	var balls = get_tree().get_nodes_in_group('balls')
 	if balls.size() == 0: 
 		velocity.y = 0 
 		return

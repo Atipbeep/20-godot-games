@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://biyubhqup5gtu"]
+[gd_scene load_steps=4 format=3 uid="uid://biyubhqup5gtu"]
 
 [ext_resource type="Script" uid="uid://b7d8wpw1y4gh6" path="res://scripts/ball.gd" id="1_7s4qf"]
+[ext_resource type="AudioStream" uid="uid://died0s30at6q0" path="res://sfx/hit.wav" id="2_cxlvu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n1dj2"]
 radius = 6.08276
@@ -25,3 +26,6 @@ size_flags_vertical = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n1dj2")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cxlvu")

@@ -1,4 +1,4 @@
-extends CharacterBody2D #Enemy
+extends CharacterBody2D #Player
 
 var speed = 400
 
