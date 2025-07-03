@@ -1,0 +1,21 @@
+extends Node2D
+
+var speed = 200
+var gap_size = 150
+var min_gap_y = 100
+var max_gap_y =  600
+
+func _ready():
+	randomize()
+
+func _process(delta: float) -> void:
+	position.x -= speed * delta
+	if position.x < 0:
+		queue_free()
+
+func set_gap():
+	var gap_y = randf_range(min_gap_y, max_gap_y)
+	var half_gap = gap_size / 2 
+
+	$Pipe.position.y = gap_y - half_gap - $Pipe.texture.get_height()
+	$Pipe2.position.y = gap_y + half_gap

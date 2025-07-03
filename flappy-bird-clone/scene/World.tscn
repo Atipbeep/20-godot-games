@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm7uhcbdo16fm"]
+
+[ext_resource type="PackedScene" uid="uid://04jv10b6xhmb" path="res://scene/floor.tscn" id="1_eo0mm"]
+[ext_resource type="Script" uid="uid://df2jm132xlqgk" path="res://scripts/world.gd" id="1_iqpdx"]
+[ext_resource type="PackedScene" uid="uid://dg3vnxqhlgmaa" path="res://scene/bird.tscn" id="2_iibxp"]
+[ext_resource type="PackedScene" uid="uid://c2qtsvupt5u01" path="res://scene/pipes.tscn" id="3_dtoa7"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_iqpdx")
+pipe_scene = ExtResource("3_dtoa7")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 639.0
+offset_bottom = 1136.0
+color = Color(0.396078, 1, 1, 1)
+
+[node name="Floor" parent="." instance=ExtResource("1_eo0mm")]
+position = Vector2(-7, 1047)
+
+[node name="Bird" parent="." instance=ExtResource("2_iibxp")]
+position = Vector2(20, 568)
