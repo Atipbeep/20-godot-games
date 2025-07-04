@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2qtsvupt5u01"]
+[gd_scene load_steps=4 format=3 uid="uid://c2qtsvupt5u01"]
 
 [ext_resource type="Script" uid="uid://bir13dhnqgyqb" path="res://scripts/pipes.gd" id="1_86036"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsj6r"]
 size = Vector2(41, 549)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86036"]
+size = Vector2(75.5, 204)
+
 [node name="Pipes" type="Node2D"]
+visibility_layer = 2
 script = ExtResource("1_86036")
 
-[node name="Pipe" type="Area2D" parent="."]
+[node name="Pipe" type="StaticBody2D" parent="."]
 position = Vector2(3, -19)
 metadata/_edit_group_ = true
 
@@ -25,11 +29,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.517647, 0, 0.976471)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe" groups=["pipes"]]
 position = Vector2(-2, -275.45)
 shape = SubResource("RectangleShape2D_nsj6r")
 
-[node name="Pipe2" type="Area2D" parent="."]
+[node name="Pipe2" type="StaticBody2D" parent="."]
 position = Vector2(0, 680)
 metadata/_edit_group_ = true
 
@@ -48,6 +52,14 @@ grow_vertical = 2
 color = Color(0, 0.517647, 0, 0.976471)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe2" groups=["pipes"]]
 position = Vector2(0.5, -273.5)
 shape = SubResource("RectangleShape2D_nsj6r")
+
+[node name="Score" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score"]
+position = Vector2(66, 55)
+shape = SubResource("RectangleShape2D_86036")
+
+[connection signal="body_entered" from="Score" to="." method="_on_score_body_entered"]

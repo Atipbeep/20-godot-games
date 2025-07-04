@@ -15,4 +15,3 @@ func _spawn_pipe() -> void:
 	var pipe = pipe_scene.instantiate()
 	pipe.position = Vector2(get_viewport_rect().size.x  + 75, 568)  # spawn off-screen to right
 	add_child(pipe)
-

@@ -17,7 +17,7 @@ offset_bottom = 1136.0
 color = Color(0.396078, 1, 1, 1)
 
 [node name="Floor" parent="." instance=ExtResource("1_eo0mm")]
-position = Vector2(-7, 1047)
+position = Vector2(-12, 792)
 
 [node name="Bird" parent="." instance=ExtResource("2_iibxp")]
 position = Vector2(20, 568)

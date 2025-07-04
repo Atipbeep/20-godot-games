@@ -7,8 +7,9 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 
-
 func get_input():
 	if Input.is_action_just_pressed("UP"):
 		velocity.y = -500
+
+
 
