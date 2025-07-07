@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vkrklyqsgikn"]
+
+[ext_resource type="PackedScene" uid="uid://idnjxe63tfmh" path="res://scene/bird.tscn" id="1_pjass"]
+[ext_resource type="Script" uid="uid://db04nsvv1fw34" path="res://scripts/world.gd" id="1_txmk2"]
+[ext_resource type="PackedScene" uid="uid://71o10v2dvort" path="res://scene/floor.tscn" id="3_w4qq1"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_txmk2")
+
+[node name="Bird" parent="." instance=ExtResource("1_pjass")]
+
+[node name="StartPos" type="Marker2D" parent="."]
+position = Vector2(100, 360)
+
+[node name="Floor" parent="." instance=ExtResource("3_w4qq1")]
+
+[node name="FloorPos" type="Marker2D" parent="."]
+position = Vector2(0, 650)
