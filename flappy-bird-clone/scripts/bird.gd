@@ -12,4 +12,3 @@ func get_input():
 		velocity.y = -500
 
 
-

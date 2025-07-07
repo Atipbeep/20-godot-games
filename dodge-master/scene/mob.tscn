@@ -24,6 +24,7 @@ offset_right = 14.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.640331, 0.0665436, 9.62615e-08, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wdb2w")
