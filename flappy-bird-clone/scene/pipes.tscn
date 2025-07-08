@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkr5qw1pllyra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsj6r"]
+size = Vector2(42, 318)
+
+[node name="Pipes" type="Node2D"]
+
+[node name="Pipe1" type="StaticBody2D" parent="."]
+position = Vector2(0, -57)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Pipe1"]
+offset_right = 40.0
+offset_bottom = 320.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe1"]
+position = Vector2(20, 158)
+shape = SubResource("RectangleShape2D_nsj6r")
+
+[node name="Pipe2" type="StaticBody2D" parent="."]
+position = Vector2(0, 431)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Pipe2"]
+offset_right = 40.0
+offset_bottom = 320.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe2"]
+position = Vector2(20, 158)
+shape = SubResource("RectangleShape2D_nsj6r")

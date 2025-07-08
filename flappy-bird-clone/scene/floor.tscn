@@ -1,20 +1,28 @@
 [gd_scene load_steps=3 format=3 uid="uid://71o10v2dvort"]
 
-[ext_resource type="Script" uid="uid://bag2umgjdihvu" path="res://scene/floor.gd" id="1_54icn"]
+[ext_resource type="Script" uid="uid://dkaffb2dgnok6" path="res://scripts/floor.gd" id="1_54icn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8lrs"]
-size = Vector2(1280, 72)
+size = Vector2(1280, 88)
 
-[node name="Floor" type="Area2D"]
+[node name="Floor" type="Node2D"]
 script = ExtResource("1_54icn")
-metadata/_edit_group_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
 offset_right = 1280.0
-offset_bottom = 70.0
+offset_bottom = 80.0
+color = Color(0.136621, 0.74766, 0.244144, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(640, 40)
+shape = SubResource("RectangleShape2D_d8lrs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(640, 36)
 shape = SubResource("RectangleShape2D_d8lrs")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
